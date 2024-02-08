@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.deploymentname }}  # 🚀 Name of the Deployment
+spec:
+  replicas: 1  # 🚶 Number of desired replicas
+  selector:
+    matchLabels:
+      app: {{ .Values.appname }}  # 🏷️ Selector to match pods with the label "app: cafe"
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.appname }}  # 🏷️ Labels applied to pods created by this template
+    spec:
+      containers:
+        - name: my-app-container  # 📦 Name of the container
+          image: "{{ .Values.image.name }}:{{ .Values.image.tag }}"  # 🐳 Docker image to use
+          ports:
+            - name: cafe-port  # 🌐 Name of the port
+              containerPort: 80  # 🚪 Port that the container listens on

@@ -1,0 +1,7 @@
+appname: wavecafe
+deploymentname: wavecafe
+servicename: wave-cafe
+
+image:
+  name: saitejairrinki/wavecafe
+  tag: v1

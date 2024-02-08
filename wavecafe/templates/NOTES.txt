@@ -1,0 +1,3 @@
+kubectl get svc wave-cafe -o=jsonpath='{.status.loadBalancer.ingress[0].ip}'
+
+kubectl get deployment
