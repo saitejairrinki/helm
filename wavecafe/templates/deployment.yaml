@@ -1,20 +1,32 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ .Values.deploymentname }}  # 🚀 Name of the Deployment
+  name: {{ .Values.deploymentname }}
 spec:
-  replicas: 1  # 🚶 Number of desired replicas
+  # replicas: 1
   selector:
     matchLabels:
-      app: {{ .Values.appname }}  # 🏷️ Selector to match pods with the label "app: cafe"
+      app: {{ .Values.appname }}
   template:
     metadata:
       labels:
-        app: {{ .Values.appname }}  # 🏷️ Labels applied to pods created by this template
+        app: {{ .Values.appname }}
     spec:
       containers:
-        - name: my-app-container  # 📦 Name of the container
-          image: "{{ .Values.image.name }}:{{ .Values.image.tag }}"  # 🐳 Docker image to use
+        - name: my-app-container
+          image: "{{ .Values.image.name }}:{{ .Values.image.tag }}"
           ports:
-            - name: cafe-port  # 🌐 Name of the port
-              containerPort: 80  # 🚪 Port that the container listens on
+            - name: cafe-port
+              containerPort: 80
+          livenessProbe:
+            exec:
+              command:
+                - ls
+            initialDelaySeconds: 15
+            periodSeconds: 20
+          readinessProbe:
+            exec:
+              command:
+                - ls
+            initialDelaySeconds: 10
+            periodSeconds: 15
