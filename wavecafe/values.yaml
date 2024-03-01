@@ -5,3 +5,9 @@ servicename: wave-cafe
 image:
   name: saitejairrinki/wavecafe
   tag: v1
+
+hpa:
+  name: wavecafe-hpa
+  minReplicas: 2
+  maxReplicas: 10
+  targetCPUUtilization: 50
