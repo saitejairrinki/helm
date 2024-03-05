@@ -28,7 +28,7 @@ Deploying the Coffee Shop website using Helm is made easy. Refer to the guide av
 
 ## Additional Features
 
-In this Helm repository, we have added Horizontal Pod Autoscaling (HPA) and Kubernetes probes to ensure high availability and improved reliability.
+In this Helm repository, we have added [Horizontal Pod Autoscaling (HPA) and Kubernetes probes](https://github.com/saitejairrinki/helm/tree/main/wavecafe/templates) to ensure high availability and improved reliability.
 
 ## Finding the Process
 
