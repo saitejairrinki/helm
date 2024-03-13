@@ -1,18 +1,18 @@
 apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
-  name: {{ .Values.hpa.name }}                  # Name of the HorizontalPodAutoscaler defined in values.yaml
+  name: {{ .Values.hpa.name }}                  # 📏 Name of the HorizontalPodAutoscaler defined in values.yaml
 spec:
   scaleTargetRef:
-    apiVersion: apps/v1                         # API version of the target resource
-    kind: Deployment                            # Kind of the target resource
-    name: {{ .Values.deploymentname }}          # Name of the target Deployment
-  minReplicas: {{ .Values.hpa.minReplicas }}    # Minimum number of replicas for the target resource
-  maxReplicas: {{ .Values.hpa.maxReplicas }}    # Maximum number of replicas for the target resource
+    apiVersion: apps/v1                         # 📊 API version of the target resource
+    kind: Deployment                            # 🚀 Kind of the target resource
+    name: {{ .Values.deploymentname }}          # 🏷️ Name of the target Deployment
+  minReplicas: {{ .Values.hpa.minReplicas }}    # 📉 Minimum number of replicas for the target resource
+  maxReplicas: {{ .Values.hpa.maxReplicas }}    # 📈 Maximum number of replicas for the target resource
   metrics:
-  - type: Resource                              # Type of metric used for autoscaling
+  - type: Resource                              # 💡 Type of metric used for autoscaling
     resource:
-      name: cpu                                 # Name of the resource metric (cpu, memory)
+      name: cpu                                 # 🖥️ Name of the resource metric (cpu, memory)
       target:
-        type: Utilization                        # Type of target metric value
-        averageUtilization: {{ .Values.hpa.targetCPUUtilization }}  # Target average CPU utilization percentage
+        type: Utilization                        # 📊 Type of target metric value
+        averageUtilization: {{ .Values.hpa.targetCPUUtilization }}  # 🎯 Target average CPU utilization percentage
