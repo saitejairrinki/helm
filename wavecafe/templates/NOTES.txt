@@ -3,6 +3,7 @@ Coffee Shop Website Deployment on Kubernetes: Management and Monitoring
 Commands Reference:
 
 1. View Deployments:
+   helm ls
    kubectl get deployment -A
 
 2. View Exposed Services:
@@ -17,7 +18,7 @@ Commands Reference:
 
 Instructions:
 
-1. Use `kubectl get deployment -A` to see all deployments in your Kubernetes cluster. Look for your coffee shop website deployment to ensure it's running as expected.
+1. Use `helm ls` or `kubectl get deployment -A` to see all deployments in your Kubernetes cluster. Look for your coffee shop website deployment to ensure it's running as expected.
 
 2. Utilize `kubectl get service -A` to check the services exposed by your coffee shop website deployment. This provides information about how users can access your website.
 
