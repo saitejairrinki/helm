@@ -1,5 +1,6 @@
 appname: wavecafe
 deploymentname: wavecafe
+#deploymentname:$deploymentname  [Note: When referring to values from a variable group, use $ followed by the variable name or specify the variable's calling within the file.]
 servicename: wave-cafe
 
 image:
@@ -11,3 +12,6 @@ hpa:
   minReplicas: 2
   maxReplicas: 10
   targetCPUUtilization: 50
+
+
+
