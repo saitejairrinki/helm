@@ -1,37 +1,37 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ .Values.deploymentname }}  # Name of the deployment defined in values.yaml
+  name: {{ .Values.deploymentname }}  # 🚀 Name of the deployment defined in values.yaml
 spec:
   # replicas: 1   # Number of desired replicas for the deployment
   selector:
     matchLabels:
-      app: {{ .Values.appname }}     # Label selector to match pods belonging to this deployment
+      app: {{ .Values.appname }}     # 🏷️ Label selector to match pods belonging to this deployment
   template:
     metadata:
       labels:
-        app: {{ .Values.appname }}   # Label applied to pods created by this deployment
+        app: {{ .Values.appname }}   # 🏷️ Label applied to pods created by this deployment
     spec:
       containers:
         - name: my-app-container
-          image: "{{ .Values.image.name }}:{{ .Values.image.tag }}"  # Docker image to use for the container
+          image: "{{ .Values.image.name }}:{{ .Values.image.tag }}"  # 🐳 Docker image to use for the container
           ports:
             - name: cafe-port
-              containerPort: 80     # Port exposed by the container
+              containerPort: 80     # 🌐 Port exposed by the container
               
-          resources:                 # Resource allocation for the container
-            requests:                # Resource requests (minimum required by the container)
+          resources:                 # 💡 Resource allocation for the container
+            requests:                # 💼 Resource requests (minimum required by the container)
               cpu: "100m"            # Request 100 milliCPU (1/10th of a CPU core). Adjust based on observed CPU usage  
-            limits:                  # Resource limits (maximum allowed by the container)
+            limits:                  # 💡 Resource limits (maximum allowed by the container)
               cpu: "500m"            # Limit CPU usage to 500 milliCPU (1/2 of a CPU core). Adjust based on observed CPU usage  
               
-          livenessProbe:             # Probe to determine if the container is alive
+          livenessProbe:             # 🔍 Probe to determine if the container is alive
             exec:
               command:
                 - ls                 # Execute the 'ls' command
             initialDelaySeconds: 15  # Delay before the first probe is performed
             periodSeconds: 20        # Interval between consecutive probes
-          readinessProbe:            # Probe to determine if the container is ready to serve traffic
+          readinessProbe:            # 🔍 Probe to determine if the container is ready to serve traffic
             exec:
               command:
                 - ls                 # Execute the 'ls' command
